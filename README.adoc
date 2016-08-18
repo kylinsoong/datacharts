@@ -8,3 +8,7 @@ This is a demo project to demonstrates how JavaEE use the highcharts.
 . *_Highcharts_* - http://www.highcharts.com/
 . *_WildFly Swarm_* - http://wildfly-swarm.io/
 . http://asciidoctor.org/docs/asciidoc-syntax-quick-reference/[AsciiDoc Syntax Quick Reference]
+
+== How to Run
+
+http://localhost:8080/
