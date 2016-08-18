@@ -1,25 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>org.wildfly.swarm.examples</groupId>
-    <artifactId>wildfly-swarm-highcharts</artifactId>
+    <groupId>org.datacharts</groupId>
+    <artifactId>datacharts-parent</artifactId>
     <version>1.0.0-SNAPSHOT</version>
-    <packaging>war</packaging>
-    <name>WildFly Swarm Highcharts</name>
-    <description>WildFly Swarm Highcharts</description>
+    <packaging>pom</packaging>
+    <name>Datacharts Parent</name>
+    <description>Datacharts Parent</description>
 
     <properties>
         <version.wildfly-swarm>1.0.0.Final</version.wildfly-swarm>
+        
+        <datacharts.dist.name>datacharts</datacharts.dist.name>
+        
         <version.compiler.plugin>3.1</version.compiler.plugin>
         <maven.compiler.target>1.8</maven.compiler.target>
         <maven.compiler.source>1.8</maven.compiler.source>
+        
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
-
 
     <dependencyManagement>
         <dependencies>
-            <dependency>
+           <dependency>
                 <groupId>org.wildfly.swarm</groupId>
                 <artifactId>bom</artifactId>
                 <version>${version.wildfly-swarm}</version>
@@ -28,52 +31,62 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
-   
-    <dependencies>
-        <dependency>
-            <groupId>org.wildfly.swarm</groupId>
-            <artifactId>undertow</artifactId>
-        </dependency>
-    </dependencies>
 
-<!-- 
-    <version>${version.wildfly-swarm}</version>
-    <version>${version.war.plugin}</version>
---> 
+    <!-- Modules -->
+    <modules>
+        <module>gwt-highcharts</module>
+        <module>ui</module> 
+    </modules>
 
+    <!-- Licenses -->
+    <licenses>
+        <license>
+            <name>apache_v2</name>
+            <url>http://repository.jboss.org/licenses/apache-2.0.txt</url>
+        </license>
+    </licenses>
+
+    <!-- Developers -->
+    <developers>
+        <developer>
+            <name>Kylin Soong</name>
+        </developer>
+    </developers>
+    
     <build>
-        <finalName>${artifactId}</finalName>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>${version.compiler.plugin}</version>
+                    <configuration>
+                        <source>${maven.compiler.source}</source>
+                        <target>${maven.compiler.target}</target>
+                        <showDeprecation>false</showDeprecation>
+                        <showWarnings>false</showWarnings>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.wildfly.swarm</groupId>
+                    <artifactId>wildfly-swarm-plugin</artifactId>
+                    <version>${version.wildfly-swarm}</version>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>package</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+            </plugins>
+        </pluginManagement>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>${version.compiler.plugin}</version>
-                <configuration>
-                    <source>${maven.compiler.source}</source>
-                    <target>${maven.compiler.target}</target>
-                    <showDeprecation>false</showDeprecation>
-                    <showWarnings>false</showWarnings>
-                </configuration>
-            </plugin>
-            <plugin>
-                <artifactId>maven-war-plugin</artifactId>
-                <configuration>
-                    <failOnMissingWebXml>false</failOnMissingWebXml>
-                </configuration>
-            </plugin>
-	        <plugin>
-                <groupId>org.wildfly.swarm</groupId>
-                <artifactId>wildfly-swarm-plugin</artifactId>
-                <version>${version.wildfly-swarm}</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>package</goal>
-                        </goals>
-                    </execution>
-                </executions>
             </plugin>
         </plugins>
     </build>
-
+    
 </project>
