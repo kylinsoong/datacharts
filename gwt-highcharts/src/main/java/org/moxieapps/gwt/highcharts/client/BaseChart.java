@@ -2455,7 +2455,7 @@ public abstract class BaseChart<T> extends Widget {
         return options.getJavaScriptObject();
     }
 
-    private JSONObject convertSeriesToJSON(Series series) {
+    protected JSONObject convertSeriesToJSON(Series series) {
         JSONObject seriesOptions = series.getOptions();
         if (seriesOptions == null) {
             seriesOptions = new JSONObject();

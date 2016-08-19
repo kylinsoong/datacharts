@@ -10,6 +10,8 @@
 
     <properties>
         <version.wildfly-swarm>1.0.0.Final</version.wildfly-swarm>
+        <version.org.moxieapps.gwt>1.7.0</version.org.moxieapps.gwt>
+        <version.gwt>2.7.0</version.gwt>
         
         <datacharts.dist.name>datacharts</datacharts.dist.name>
         
@@ -28,6 +30,21 @@
                 <version>${version.wildfly-swarm}</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.moxieapps.gwt</groupId>
+                <artifactId>org.moxieapps.gwt.highcharts</artifactId>
+                <version>${version.org.moxieapps.gwt}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.google.gwt</groupId>
+                <artifactId>gwt-servlet</artifactId>
+                <version>${gwtVersion}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.google.gwt</groupId>
+                <artifactId>gwt-user</artifactId>
+                <version>${gwtVersion}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

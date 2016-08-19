@@ -9,8 +9,8 @@
     </parent>
     <artifactId>datacharts-ui</artifactId>
     <packaging>war</packaging>
-    <name>datacharts UI</name>
-    <description>datacharts UI</description>
+    <name>Datacharts UI</name>
+    <description>Datacharts UI</description>
    
     <dependencies>
         <dependency>
