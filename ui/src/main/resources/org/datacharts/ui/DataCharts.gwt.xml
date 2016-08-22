@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module rename-to='DataCharts'>
+  <inherits name="org.moxieapps.gwt.highcharts.Highcharts"/>
+  <inherits name='com.google.gwt.user.theme.standard.Standard' />
+  <entry-point class='org.datacharts.ui.client.DataCharts' />
+  <source path='client' />
+  <source path='shared' />
+</module>
